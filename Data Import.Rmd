@@ -51,3 +51,20 @@ mlb_data = readxl::read_excel(path="/Users/annie/Desktop/data_wrangling_i/mlb11.
 mlb_subste = readxl::read_excel(path="/Users/annie/Desktop/data_wrangling_i/mlb11.xlsx",
                                 range = "A1:E17")
 ```
+
+Read in pulse data:
+```{r}
+pulse_data = haven::read_sas("/Users/annie/Desktop/data_wrangling_i/public_pulse_data.sas7bdat")
+```
+
+## compare with base R
+```{r}
+pups_baser = read.csv("/Users/annie/Desktop/data_wrangling_i/FAS_pups.csv")
+pups_readr = read_csv("/Users/annie/Desktop/data_wrangling_i/FAS_pups.csv")
+
+pups_readr
+pups_baser
+
+pups_readr$s
+pups_baser$s 
+```
