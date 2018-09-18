@@ -9,3 +9,45 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
+```{r}
+library(tidyverse)
+```
+
+##Import FA csv files
+
+import my first csv.
+
+```{r}
+litter_data = read_csv(file = "/Users/annie/Desktop/data_wrangling_i/FAS_litters.csv")
+```
+
+
+```{r}
+litter_data_1 = read_csv(file = "/Users/annie/Desktop/data_wrangling_i/FAS_pups.csv")
+```
+
+##Look at the data
+```{r}
+head(litter_data)
+tail(litter_data)
+```
+
+```{r}
+litter_data = read_csv(file = "/Users/annie/Desktop/data_wrangling_i/FAS_litters.csv",
+  skip = 10, col_names = FALSE)
+```
+
+```{r}
+pups_data = read_csv("/Users/annie/Desktop/data_wrangling_i/FAS_pups.csv", col_types = "ciiiii")
+pups_data = janitor::clean_names(pups_data)
+skimr::skim(pups_data)
+```
+
+##Other format
+
+read in mlb data
+```{r}
+mlb_data = readxl::read_excel(path="/Users/annie/Desktop/data_wrangling_i/mlb11.xlsx")
+mlb_subste = readxl::read_excel(path="/Users/annie/Desktop/data_wrangling_i/mlb11.xlsx",
+                                range = "A1:E17")
+```
